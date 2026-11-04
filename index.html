@@ -10,8 +10,8 @@
 
   <!-- SEO & Social Media -->
   <meta name="description" content="Technous is an independent app studio. We make Nimble, your morning coach, Tact, which helps you say it right, and Skye, your cosmic girl.">
-  <meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0b0e15" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f5f7ff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d1130" media="(prefers-color-scheme: dark)">
   <meta property="og:title" content="Technous · Independent app studio">
   <meta property="og:description" content="Technous is an independent app studio. We make Nimble, your morning coach, Tact, which helps you say it right, and Skye, your cosmic girl.">
   <meta property="og:image" content="https://technous.dev/assets/images/technous.png">
@@ -22,7 +22,7 @@
   <link rel="preload" as="image" href="assets/images/technous-mark.png" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500..700&family=Nunito:wght@400..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
   <script>
     // Apply a saved theme before paint so the page never flashes the wrong colours
@@ -83,7 +83,7 @@
             <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z"></path>
           </svg>
         </button>
-        <a class="button muted-dark" href="contact.html" data-i18n="nav.contact">Contact</a>
+        <a class="button primary" href="contact.html" data-i18n="nav.contact">Contact</a>
       </div>
       <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span>
@@ -97,27 +97,37 @@
     <section class="hero">
       <div class="hero-bg" aria-hidden="true"></div>
       <svg class="hero-orbits" viewBox="0 0 800 600" aria-hidden="true">
-        <g transform="rotate(-9 420 300)">
+        <g transform="rotate(-2 420 300)">
           <path id="orbit" d="M 25 300 A 395 86 0 1 0 815 300 A 395 86 0 1 0 25 300" opacity="0.7"></path>
-          <circle r="7">
+          <circle r="9">
             <animateMotion dur="26s" begin="-10s" repeatCount="indefinite" rotate="auto">
               <mpath href="#orbit"></mpath>
             </animateMotion>
           </circle>
-          <circle r="5" opacity="0.75">
+          <circle r="7">
             <animateMotion dur="26s" begin="-23s" repeatCount="indefinite">
               <mpath href="#orbit"></mpath>
             </animateMotion>
           </circle>
         </g>
         <path class="orbit-arc" d="M 505 -10 C 585 190, 470 420, 230 590" opacity="0.7"></path>
+        <path class="sparkle yellow" transform="translate(480 62) scale(1.3)"
+          d="M0 -10Q1.6 -1.6 10 0Q1.6 1.6 0 10Q-1.6 1.6 -10 0Q-1.6 -1.6 0 -10Z"></path>
+        <path class="sparkle peach" transform="translate(560 470) scale(0.9)"
+          d="M0 -10Q1.6 -1.6 10 0Q1.6 1.6 0 10Q-1.6 1.6 -10 0Q-1.6 -1.6 0 -10Z"></path>
+        <path class="sparkle mint" transform="translate(300 440) scale(0.6)"
+          d="M0 -10Q1.6 -1.6 10 0Q1.6 1.6 0 10Q-1.6 1.6 -10 0Q-1.6 -1.6 0 -10Z"></path>
+        <path class="sparkle pink" transform="translate(240 125) scale(0.85)"
+          d="M0 -10Q1.6 -1.6 10 0Q1.6 1.6 0 10Q-1.6 1.6 -10 0Q-1.6 -1.6 0 -10Z"></path>
+        <path class="sparkle lilac" transform="translate(600 285) scale(0.6)"
+          d="M0 -10Q1.6 -1.6 10 0Q1.6 1.6 0 10Q-1.6 1.6 -10 0Q-1.6 -1.6 0 -10Z"></path>
       </svg>
       <div class="hero-inner">
         <h1 data-i18n="hero.title" data-i18n-html>Everyday apps, <em>made with care.</em></h1>
         <p class="hero-description" data-i18n="hero.desc">Technous is an independent app studio. We design, build, and run our own apps:
           focused tools that do one thing well, respect your privacy, and feel good to use every day.</p>
         <div class="cta-buttons">
-          <a class="button muted-dark large" href="#apps"><span data-i18n="hero.apps">See our apps</span>
+          <a class="button primary large" href="#apps"><span data-i18n="hero.apps">See our apps</span>
             <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"
               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M3 8h10M9 4l4 4-4 4"></path>
@@ -126,21 +136,21 @@
           <a class="button secondary large" href="#studio" data-i18n="hero.studio">How we build</a>
         </div>
         <ul class="hero-apps" aria-label="Our apps">
-          <li>
+          <li class="app-nimble">
             <a href="https://nimbleapp.co" target="_blank" rel="noopener">
-              <img src="assets/images/nimble-logo.png" alt="" width="28" height="28">
+              <img src="assets/images/nimble-logo.png" alt="" width="60" height="60">
               <span><strong>Nimble</strong> <span data-i18n="hero.apps.nimble">Alarm clock</span></span>
             </a>
           </li>
-          <li>
+          <li class="app-skye">
             <a href="https://skyeapp.co" target="_blank" rel="noopener">
-              <img src="assets/images/skye-logo.png" alt="" width="28" height="28">
+              <img src="assets/images/skye-logo.png" alt="" width="60" height="60">
               <span><strong>Skye</strong> <span data-i18n="hero.apps.skye">Astrology companion</span></span>
             </a>
           </li>
-          <li>
+          <li class="app-tact">
             <a href="https://tactapp.co" target="_blank" rel="noopener">
-              <img src="assets/images/tact-logo.png" alt="" width="28" height="28">
+              <img src="assets/images/tact-logo.png" alt="" width="60" height="60">
               <span><strong>Tact</strong> <span data-i18n="hero.apps.tact">Writing assistant</span></span>
             </a>
           </li>
@@ -149,6 +159,8 @@
     </section>
 
     <section id="apps" class="section fade-in">
+      <svg class="star sage" width="16" height="16" viewBox="-10 -10 20 20" style="top: 96px; right: 6%; --s: 24px;" aria-hidden="true"><path d="M0 -10Q1.6 -1.6 10 0Q1.6 1.6 0 10Q-1.6 1.6 -10 0Q-1.6 -1.6 0 -10Z"></path></svg>
+      <svg class="star deep" width="16" height="16" viewBox="-10 -10 20 20" style="top: 150px; right: 13%; --s: 13px;" aria-hidden="true"><path d="M0 -10Q1.6 -1.6 10 0Q1.6 1.6 0 10Q-1.6 1.6 -10 0Q-1.6 -1.6 0 -10Z"></path></svg>
       <div class="section-header single">
         <div>
           <div class="badge" data-i18n="apps.badge">Our apps</div>
@@ -156,9 +168,9 @@
         </div>
       </div>
       <div class="product-grid">
-        <article class="product scale-in stagger-1">
+        <article class="product app-nimble scale-in stagger-1">
           <div class="product-head">
-            <img src="assets/images/nimble-logo.png" alt="Nimble logo" width="48" height="48">
+            <img src="assets/images/nimble-logo.png" alt="Nimble logo" width="64" height="64">
             <div>
               <h3>Nimble</h3>
               <span data-i18n="products.nimble.tagline">Your morning coach</span>
@@ -188,9 +200,9 @@
             </span>
           </div>
         </article>
-        <article class="product scale-in stagger-2">
+        <article class="product app-skye scale-in stagger-2">
           <div class="product-head">
-            <img src="assets/images/skye-logo.png" alt="Skye logo" width="48" height="48">
+            <img src="assets/images/skye-logo.png" alt="Skye logo" width="64" height="64">
             <div>
               <h3>Skye</h3>
               <span data-i18n="products.skye.tagline">Your cosmic girl</span>
@@ -227,9 +239,9 @@
             </span>
           </div>
         </article>
-        <article class="product scale-in stagger-3">
+        <article class="product app-tact scale-in stagger-3">
           <div class="product-head">
-            <img src="assets/images/tact-logo.png" alt="Tact logo" width="48" height="48">
+            <img src="assets/images/tact-logo.png" alt="Tact logo" width="64" height="64">
             <div>
               <h3>Tact</h3>
               <span data-i18n="products.tact.tagline">Say it right, every time</span>
@@ -291,6 +303,7 @@
     </section>
 
     <section id="studio" class="section fade-in">
+      <svg class="star pink" width="16" height="16" viewBox="-10 -10 20 20" style="top: 92px; left: 44%; --s: 15px;" aria-hidden="true"><path d="M0 -10Q1.6 -1.6 10 0Q1.6 1.6 0 10Q-1.6 1.6 -10 0Q-1.6 -1.6 0 -10Z"></path></svg>
       <div class="section-header">
         <div>
           <div class="badge" data-i18n="studio.badge">Studio</div>
@@ -348,6 +361,7 @@
     </section>
 
     <section id="work" class="cta-band fade-in">
+      <svg class="star yellow" width="16" height="16" viewBox="-10 -10 20 20" style="top: 44px; right: 52px; --s: 20px;" aria-hidden="true"><path d="M0 -10Q1.6 -1.6 10 0Q1.6 1.6 0 10Q-1.6 1.6 -10 0Q-1.6 -1.6 0 -10Z"></path></svg>
       <div class="cta-inner">
         <div>
           <div class="badge" data-i18n="work.badge">Work with us</div>
