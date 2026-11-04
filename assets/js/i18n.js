@@ -42,7 +42,7 @@
     'work.desc': 'Zaman zaman inandığımız bir şey geliştiren şirketlerle ekip oluyor, kendi uygulamalarımızın arkasındaki ürün mühendisliği, keşif ve bulut deneyimini onlara da taşıyoruz.',
     'work.reach': 'Bize anlatın',
 
-    'footer.tagline': 'Technous LTD. Özenle yapıldı.',
+    'footer.tagline': 'Technous Ltd. Özenle yapıldı.',
     'footer.privacy': 'Gizlilik politikası',
     'footer.terms': 'Şartlar ve koşullar',
     'footer.contact': 'İletişim',
@@ -119,7 +119,7 @@
     'work.desc': 'Ab und zu arbeiten wir mit Unternehmen zusammen, die etwas bauen, an das wir glauben – mit derselben Produktentwicklung, Discovery- und Cloud-Erfahrung, die hinter unseren eigenen Apps steckt.',
     'work.reach': 'Erzählen Sie uns davon',
 
-    'footer.tagline': 'Technous LTD. Mit Sorgfalt gebaut.',
+    'footer.tagline': 'Technous Ltd. Mit Sorgfalt gebaut.',
     'footer.privacy': 'Datenschutzerklärung',
     'footer.terms': 'Allgemeine Geschäftsbedingungen',
     'footer.contact': 'Kontakt',
