@@ -74,7 +74,7 @@
     </div>
   </nav>
 
-  <main class="section fade-in">
+  <main class="section contact-main fade-in">
     <div class="contact-header">
       <div class="contact-header-text">
         <div class="badge" data-i18n="contact.badge">Contact</div>
@@ -89,29 +89,33 @@
 
     <div class="contact-grid">
       <article class="card form-card scale-in stagger-1">
-        <h3 data-i18n="contact.form.title">Send us a message</h3>
         <form id="contact-form">
           <label>
             <span data-i18n="contact.form.topic">What's it about?</span>
             <select class="input" name="topic" id="topic">
-              <option value="Nimble support" data-i18n="contact.topic.nimble">Nimble support</option>
-              <option value="Skye support" data-i18n="contact.topic.skye">Skye support</option>
-              <option value="Tact support" data-i18n="contact.topic.tact">Tact support</option>
+              <option value="App support" data-i18n="contact.topic.apps">App support</option>
+              <optgroup label="Or pick an app" data-i18n-label="contact.topic.pick">
+                <option value="Nimble support">Nimble</option>
+                <option value="Skye support">Skye</option>
+                <option value="Tact support">Tact</option>
+              </optgroup>
               <option value="Press and media" data-i18n="contact.topic.press">Press &amp; media</option>
               <option value="Partnership or project" data-i18n="contact.topic.work">Partnership or project</option>
               <option value="Careers" data-i18n="contact.topic.careers">Careers</option>
               <option value="Something else" data-i18n="contact.topic.other">Something else</option>
             </select>
           </label>
-          <label>
-            <span data-i18n="contact.form.name">Full name</span>
-            <input class="input" type="text" name="name" id="name" placeholder="Thomas Anderson" required>
-          </label>
-          <label>
-            <span data-i18n="contact.form.email">Email</span>
-            <input class="input" type="email" name="email" id="email" placeholder="thomas@example.com" required>
-          </label>
-          <label>
+          <div class="form-row">
+            <label>
+              <span data-i18n="contact.form.name">Full name</span>
+              <input class="input" type="text" name="name" id="name" placeholder="Thomas Anderson" required>
+            </label>
+            <label>
+              <span data-i18n="contact.form.email">Email</span>
+              <input class="input" type="email" name="email" id="email" placeholder="thomas@example.com" required>
+            </label>
+          </div>
+          <label class="company-field" hidden>
             <span data-i18n="contact.form.company">Company (optional)</span>
             <input class="input" type="text" name="company" id="company" placeholder="Company name" data-i18n-placeholder="contact.form.company">
           </label>
@@ -167,6 +171,18 @@
   <script src="assets/js/i18n.js"></script>
   <script src="assets/js/site.js"></script>
   <script>
+    // Company only matters for business topics, so the field shows just for those.
+    var topicSelect = document.getElementById('topic');
+    var companyField = document.querySelector('.company-field');
+    var companyTopics = ['Partnership or project', 'Press and media'];
+    function syncCompanyField() {
+      var show = companyTopics.indexOf(topicSelect.value) > -1;
+      companyField.hidden = !show;
+      if (!show) document.getElementById('company').value = '';
+    }
+    topicSelect.addEventListener('change', syncCompanyField);
+    syncCompanyField();
+
     // The form opens the visitor's mail client with the message prefilled.
     document.getElementById('contact-form').addEventListener('submit', function (event) {
       event.preventDefault();
@@ -182,7 +198,7 @@
         'Topic: ' + topic + '\n' +
         'Name: ' + name + '\n' +
         'Email: ' + email + '\n' +
-        'Company: ' + (company || 'Not provided') + '\n\n' +
+        (companyField.hidden ? '' : 'Company: ' + (company || 'Not provided') + '\n') + '\n' +
         'Message:\n' + message
       );
 
@@ -196,6 +212,7 @@
 
       setTimeout(function () {
         document.getElementById('contact-form').reset();
+        syncCompanyField();
       }, 1000);
     });
   </script>

@@ -1316,7 +1316,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin: 20px 0;
+  margin: 16px 0;
 }
 
 .pill {
@@ -1341,12 +1341,17 @@ footer {
    Contact page
    ------------------------------------------------------------ */
 
+/* The contact page is kept compact: less room above and below the content */
+.section.contact-main {
+  padding: 56px 0 72px;
+}
+
 .contact-header {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
   gap: 48px;
   align-items: center;
-  margin-bottom: 56px;
+  margin-bottom: 36px;
 }
 
 .contact-header-text {
@@ -1360,7 +1365,7 @@ footer {
 
 .contact-header-image img {
   max-width: 100%;
-  max-height: 240px;
+  max-height: 120px;
   width: auto;
   height: auto;
 }
@@ -1376,13 +1381,13 @@ footer {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
   gap: 24px;
-  align-items: start;
+  align-items: stretch;
 }
 
 /* The form sits on a white sheet, the details on a soft blue one */
 .contact-grid .card {
   margin: 0;
-  padding: 36px;
+  padding: 30px;
   border: 0;
   border-radius: var(--radius-lg);
 }
@@ -1393,17 +1398,27 @@ footer {
 }
 
 .form-card {
+  display: flex;
+  flex-direction: column;
   background: var(--bg-elev);
   box-shadow: 0 24px 48px -32px var(--shadow);
 }
 
+/* Both cards share one height. Spare room goes to the message box in the form,
+   and pushes "Helps us reply faster" to the bottom of the details card. */
 .contact-info-card {
+  display: flex;
+  flex-direction: column;
   background: var(--band-bg);
+}
+
+.contact-info-card .pill-group {
+  margin-bottom: 22px;
 }
 
 .contact-grid h3 {
   font-size: 1.3rem;
-  margin: 0 0 24px;
+  margin: 0 0 18px;
 }
 
 .contact-info-card h3 {
@@ -1412,7 +1427,7 @@ footer {
 
 .contact-info-card h4 {
   font-size: 1.02rem;
-  margin: 28px 0 10px;
+  margin: auto 0 8px;
 }
 
 .contact-info-card ul {
@@ -1426,14 +1441,34 @@ footer {
 
 
 .form-card form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Name and email sit side by side */
+.form-row {
   display: grid;
-  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+/* The message box takes any spare height */
+.form-card label:has(textarea),
+.form-card textarea {
+  flex: 1;
 }
 
 .form-card label {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
+}
+
+/* label sets display:flex, which outranks the user-agent [hidden] rule */
+.form-card label[hidden] {
+  display: none;
 }
 
 .form-card label span {
@@ -1443,7 +1478,7 @@ footer {
 }
 
 .input {
-  padding: 12px 16px;
+  padding: 10px 14px;
   border-radius: 14px;
   border: 1.5px solid var(--line-strong);
   background: var(--bg);
@@ -1477,12 +1512,12 @@ select.input {
 
 textarea.input {
   resize: vertical;
-  min-height: 140px;
+  min-height: 112px;
   line-height: 1.6;
 }
 
 .form-card .button {
-  justify-self: start;
+  align-self: flex-start;
   margin-top: 4px;
 }
 
@@ -1723,9 +1758,12 @@ textarea.input {
     gap: 16px;
   }
 
-  .cta-image img,
-  .contact-header-image img {
+  .cta-image img {
     max-height: 200px;
+  }
+
+  .contact-header-image img {
+    max-height: 100px;
   }
 
   .contact-header-image {
@@ -1739,6 +1777,10 @@ textarea.input {
   .cta-band {
     margin-bottom: 72px;
     border-radius: var(--radius-lg);
+  }
+
+  .section.contact-main {
+    padding: 40px 0 56px;
   }
 
   .cta-inner {
@@ -1801,7 +1843,11 @@ textarea.input {
   }
 
   .contact-grid .card {
-    padding: 28px 22px;
+    padding: 26px 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
   }
 
   .star {

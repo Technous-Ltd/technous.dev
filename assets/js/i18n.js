@@ -1,4 +1,4 @@
-// Turkish and German translations for every element tagged with data-i18n / data-i18n-placeholder.
+// Turkish and German translations for every element tagged with data-i18n / data-i18n-placeholder / data-i18n-label.
 // English is captured from the markup itself at load time, so it never goes stale.
 (function () {
   var TR = {
@@ -51,11 +51,9 @@
     'contact.badge': 'İletişim',
     'contact.title': 'Merhaba deyin',
     'contact.desc': 'Uygulamalarımız hakkında sorular, basın, ortaklıklar ya da aklınızdaki bir proje. Bize yazın, bir iş günü içinde yanıt verelim.',
-    'contact.form.title': 'Bize mesaj gönderin',
     'contact.form.topic': 'Konu nedir?',
-    'contact.topic.nimble': 'Nimble desteği',
-    'contact.topic.tact': 'Tact desteği',
-    'contact.topic.skye': 'Skye desteği',
+    'contact.topic.apps': 'Uygulama desteği',
+    'lb.contact.topic.pick': 'Ya da bir uygulama seçin',
     'contact.topic.press': 'Basın ve medya',
     'contact.topic.work': 'Ortaklık veya proje',
     'contact.topic.careers': 'Kariyer',
@@ -130,11 +128,9 @@
     'contact.badge': 'Kontakt',
     'contact.title': 'Sagen Sie Hallo',
     'contact.desc': 'Fragen zu unseren Apps, Presse, Partnerschaften oder ein Projekt im Kopf? Schreiben Sie uns, wir antworten innerhalb eines Werktags.',
-    'contact.form.title': 'Schreiben Sie uns',
     'contact.form.topic': 'Worum geht es?',
-    'contact.topic.nimble': 'Nimble-Support',
-    'contact.topic.tact': 'Tact-Support',
-    'contact.topic.skye': 'Skye-Support',
+    'contact.topic.apps': 'App-Support',
+    'lb.contact.topic.pick': 'Oder eine App wählen',
     'contact.topic.press': 'Presse und Medien',
     'contact.topic.work': 'Partnerschaft oder Projekt',
     'contact.topic.careers': 'Karriere',
@@ -170,6 +166,7 @@
   var root = document.documentElement;
   var textNodes = document.querySelectorAll('[data-i18n]');
   var placeholderNodes = document.querySelectorAll('[data-i18n-placeholder]');
+  var labelNodes = document.querySelectorAll('[data-i18n-label]');
 
   textNodes.forEach(function (el) {
     var value = el.hasAttribute('data-i18n-html') ? el.innerHTML : el.textContent;
@@ -177,6 +174,9 @@
   });
   placeholderNodes.forEach(function (el) {
     EN['ph.' + el.getAttribute('data-i18n-placeholder')] = el.getAttribute('placeholder') || '';
+  });
+  labelNodes.forEach(function (el) {
+    EN['lb.' + el.getAttribute('data-i18n-label')] = el.getAttribute('label') || '';
   });
 
   function apply(lang) {
@@ -193,6 +193,11 @@
       var value = dict['ph.' + el.getAttribute('data-i18n-placeholder')];
       if (value == null) value = EN['ph.' + el.getAttribute('data-i18n-placeholder')];
       if (value != null) el.setAttribute('placeholder', value);
+    });
+    labelNodes.forEach(function (el) {
+      var value = dict['lb.' + el.getAttribute('data-i18n-label')];
+      if (value == null) value = EN['lb.' + el.getAttribute('data-i18n-label')];
+      if (value != null) el.setAttribute('label', value);
     });
     root.setAttribute('lang', lang);
     document.querySelectorAll('.lang-current').forEach(function (el) {
