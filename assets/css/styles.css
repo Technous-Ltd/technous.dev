@@ -729,8 +729,90 @@ nav.scrolled {
    ------------------------------------------------------------ */
 
 .hero {
+  --orbit-dot: var(--deep-blue);
   position: relative;
   overflow: hidden;
+}
+
+/* Pointing at an app in the dock paints the orbit dots in that app's colour */
+.hero:has(.app-nimble a:hover, .app-nimble a:focus-visible) {
+  --orbit-dot: #f39233;
+}
+
+.hero:has(.app-skye a:hover, .app-skye a:focus-visible) {
+  --orbit-dot: #8ea2eb;
+}
+
+.hero:has(.app-tact a:hover, .app-tact a:focus-visible) {
+  --orbit-dot: #74a96b;
+}
+
+/* Night sky: tiny stars behind the hero, dark mode only */
+.hero-stars {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent);
+}
+
+.hero-stars circle {
+  fill: #e9edff;
+}
+
+.hero-stars .warm {
+  fill: var(--peach);
+}
+
+.hero-stars .cool {
+  fill: var(--lilac);
+}
+
+.hero-stars .tw {
+  animation: twinkle 4.5s ease-in-out infinite alternate;
+}
+
+:root[data-theme="dark"] .hero-stars {
+  display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .hero-stars {
+    display: block;
+  }
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 0.15;
+  }
+
+  to {
+    opacity: 0.95;
+  }
+}
+
+/* The same night sky continues behind the rest of the page (dark mode only).
+   .sky on the home page, .sky.sky-soft on the contact page for a quieter version. */
+:root[data-theme="dark"] body.sky {
+  background: url("../images/night-sky.svg") top center / 1200px 1000px repeat, var(--bg);
+}
+
+:root[data-theme="dark"] body.sky-soft {
+  background-image: url("../images/night-sky-soft.svg");
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) body.sky {
+    background: url("../images/night-sky.svg") top center / 1200px 1000px repeat, var(--bg);
+  }
+
+  :root:not([data-theme="light"]) body.sky-soft {
+    background-image: url("../images/night-sky-soft.svg");
+  }
 }
 
 .hero-bg {
@@ -773,7 +855,7 @@ nav.scrolled {
 }
 
 .hero-orbits circle {
-  fill: var(--deep-blue);
+  fill: var(--orbit-dot);
 }
 
 .hero-orbits .sparkle {
@@ -1753,6 +1835,7 @@ textarea.input {
 @media print {
   nav,
   .hero-bg,
+  .hero-stars,
   .hero-orbits,
   footer {
     display: none;
